@@ -11,6 +11,12 @@ const bcrypt = require('bcrypt')
 const db = require('./database.js')
 let users = db.users
 
+let problems = {
+    list: [
+        { id: 1, name: "Papavarin", email: "oil@email.com", room: "213", dormitory: "3", pb: "ท่อแตก" }
+    ]
+}
+
 require('./passport.js')
 
 const router = require('express').Router(),
@@ -98,6 +104,89 @@ router.post('/register',
     })
 
 router.get('/alluser', (req,res) => res.json(db.users.users))
+
+router.route('/problems')
+.get((req, res) => res.json(problems))
+
+
+router.post('/problems',
+// passport.authenticate('jwt', { session: false }),
+(req, res) => {
+    try {
+
+        let newProblem = {}
+        newProblem.id = (problems.list.length) ? problems.list[problems.list.length - 1].id + 1 : 1
+        newProblem.name = req.body.name;
+        newProblem.email = req.body.email;
+        newProblem.room = req.body.room;
+        newProblem.dormitory = req.body.dormitory;
+        newProblem.pb = req.body.pb;
+
+        problems = { "list": [...problems.list, newProblem] }
+        res.json(problems)
+    }
+    catch
+    {
+        res.json({ status: "Add Fail" })
+    }
+
+
+
+})
+router.route('/problems/:std_id')
+.get((req, res) => {
+
+    let ID = problems.list.findIndex( item => (item.id === +req.params.std_id))
+    if(ID >= 0)
+    {
+        res.json(problems.list[ID])
+    }
+    else
+    {
+        res.json({status: "Error can't find!"})
+    }
+
+})
+
+.put( (req,res) => { 
+
+    let ID = problems.list.findIndex( item => ( item.id === +req.params.std_id))
+    
+    if( ID >= 0)
+    {
+        problems.list[ID].name = req.body.name
+        problems.list[ID].email = req.body.email
+        problems.list[ID].room = req.body.room
+        problems.list[ID].dormitory = req.body.dormitory
+        problems.list[ID].pb = req.body.pb
+        
+        res.json(problems)
+
+
+    }
+    else
+    {
+        res.json({status: "Error can't find!"})
+    }
+        
+})
+
+.delete((req, res) => {
+
+    let ID = problems.list.findIndex( item => ( item.id === +req.params.std_id))
+
+    if(ID>=0)
+    {
+        problems.list = problems.list.filter( item => item.id !== +req.params.std_id)
+        res.json(problems)
+    }
+    else
+    {
+        res.json({status: "Error can't find!"})
+    }
+
+})
+
 
 router.get('/', (req, res, next) => {
     res.send('Respond without authentication');

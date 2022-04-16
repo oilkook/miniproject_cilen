@@ -45,16 +45,19 @@ const Repair_Service = ({ token }) => {
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Product name
+                    Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Color
+                    Email
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Category
+                    Room
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Price
+                    Dormitory
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Problem
                 </th>
                 <th scope="col" class="px-6 py-3">
                     <span class="sr-only">Edit</span>
@@ -75,6 +78,9 @@ const Repair_Service = ({ token }) => {
                 <td class="px-6 py-4">
                     $2999
                 </td>
+                <td class="px-6 py-4">
+                    Sliver
+                </td>
                 <td class="px-6 py-4 text-right">
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                 </td>
@@ -92,6 +98,9 @@ const Repair_Service = ({ token }) => {
                 <td class="px-6 py-4">
                     $1999
                 </td>
+                <td class="px-6 py-4">
+                    Sliver
+                </td>
                 <td class="px-6 py-4 text-right">
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                 </td>
@@ -108,6 +117,9 @@ const Repair_Service = ({ token }) => {
                 </td>
                 <td class="px-6 py-4">
                     $99
+                </td>
+                <td class="px-6 py-4">
+                    Sliver
                 </td>
                 <td class="px-6 py-4 text-right">
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>

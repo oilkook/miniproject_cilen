@@ -7,12 +7,23 @@ let users = {
     ]
 }
 
+let problems = {
+    problems: [
+        { id: 1, name: "Papavarin", email: "oil@email.com", room: "213", dormitory: "3", pb: "ท่อแตก" }
+    ]
+}
+
 const SECRET = 'your_jwt_secret'
 const NOT_FOUND = -1
 
 exports.users = users 
+exports.problems = problems
 exports.SECRET = SECRET
 exports.NOT_FOUND = NOT_FOUND
+
+exports.setProblems = function(_problems) {
+    problems = _problems;
+}
 
 exports.setUsers = function(_users) { 
   users = _users;
