@@ -59,17 +59,25 @@ const Problems = ({ token }) => {
     if (problems.list && problems.list.length)
       return problems.list.map((item, index) =>
       (
-        (<li key={index}>
+        (
+          <div className='border border-black px-5 py-5 my-2'>
+            
+            <li key={index}>
           <p> name : {item.name} </p>
           <p> email : {item.email} </p>
           <p> ห้อง : {item.room}</p>
           <p> หอ : {item.dormitory}</p>
           <p> ปัญหา : {item.pb}</p>
+         
+            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            onClick={() => updateProblem(item.id)} >Update</button> <br></br>
+
           <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-           onClick={() => updateProblem(item.id)} >Update</button> <br></br>
-          <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-           onClick={() => deleteProblem(item.id)} >Remove</button>
-        </li>)
+            onClick={() => deleteProblem(item.id)} >Remove</button>
+          
+        </li>
+        </div>
+        )
       )
       )
   }
@@ -148,15 +156,27 @@ const Problems = ({ token }) => {
           </div>
         </div>
 
-        <div>
+        <br></br>
+        <div className="h-screen bg-purple-300 border-2 flex flex-col items-center ">
+          <h1 className="flex justify-center m-8 text-indigo-800 text-4xl drop-shadow-lg">
 
-          <div >Reporter</div>
-          <br></br>
-          {
-            printProblems()
-          }
+            <div className="flex flex-row ml-3 pt-5 py-4 justify-center text-indigo-800 text-3xl drop-shadow-lg text-lg font-medium leading-6 text-gray-900">
+              Reporter
+
+            </div>
+          </h1>
+
+          <ul >
+            <div className="flex items-center justify-between flex-wrap">
+              {printProblems()}
+              
+            </div>
+            
+          </ul>
 
         </div>
+
+
       </div>
 
     </Layout>
