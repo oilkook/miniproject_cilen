@@ -7,132 +7,108 @@ import axios from 'axios'
 import withAuth from '../components/withAuth'
 import config from '../config/config'
 
+const URL = `${config.URL}/problems`
 const Repair_Service = ({ token }) => {
 
-    const [repair, setRepair] = useState({})
+    const [problems, setProblems] = useState({
+        list: [
+            { id: 1, name: "Papavarin", email: "oil@email.com", room: "213", dormitory: "หอ 3", pb: "ท่อแตก" }
+        ]
+    })
 
     useEffect(() => {
-        profileRepair()
+
+        getProblems()
     }, [])
 
-    const profileRepair = async () => {
-        try {
-            // console.log('token: ', token)
-            const repairs = await axios.get(`${config.URL}/repair_service`, {
-                headers: { Authorization: `Bearer ${token}` }
-            })
-            // console.log('repair: ', repairs.data)
-            setUser(repairs.data)
-        }
-        catch (e) {
-            console.log(e)
-        }
+    const getProblems = async () => {
+
+        let problem = await axios.get(`${config.URL}/problems`)
+        setProblems(problem.data)
 
     }
- 
-    return ( <div>
+
+    const printProblems = () => {
+        if (problems.list && problems.list.length)
+
+            return problems.list.map((item, index) =>
+            (<li key={index}>
+                {item.name}
+                {item.email}
+                {item.room}
+                {item.dormitory}
+                {item.pb}
+            </li>)
+            )
+    }
+
+    return (<div>
         <Navbar />
         <Layout>
             <Head>
                 <title>Repair Service</title>
             </Head>
+            <br></br>
             <div className={styles.container}>
-                
-                <h1>Repair Service</h1>
+                <h1 class="text-lg font-medium leading-6 text-gray-900">Repair Service</h1>
+
                 <br></br>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    Name
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Email
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Room
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Dormitory
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Problem
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    <span class="sr-only">Edit</span>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                    Apple MacBook Pro 17"
-                </th>
-                <td class="px-6 py-4">
-                    Sliver
-                </td>
-                <td class="px-6 py-4">
-                    Laptop
-                </td>
-                <td class="px-6 py-4">
-                    $2999
-                </td>
-                <td class="px-6 py-4">
-                    Sliver
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                    Microsoft Surface Pro
-                </th>
-                <td class="px-6 py-4">
-                    White
-                </td>
-                <td class="px-6 py-4">
-                    Laptop PC
-                </td>
-                <td class="px-6 py-4">
-                    $1999
-                </td>
-                <td class="px-6 py-4">
-                    Sliver
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr class="bg-white dark:bg-gray-800">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                    Magic Mouse 2
-                </th>
-                <td class="px-6 py-4">
-                    Black
-                </td>
-                <td class="px-6 py-4">
-                    Accessories
-                </td>
-                <td class="px-6 py-4">
-                    $99
-                </td>
-                <td class="px-6 py-4">
-                    Sliver
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Name
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Email
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Room
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Dormitory
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Problem
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    <span class="sr-only">Edit</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                {printProblems()}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {/* ${item.email} */}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {/* ${item.room} */}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {/* ${item.dormitory} */}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {/* ${item.pb} */}
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <a href="/problems" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br></br>
+                <a href="/problems" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  แจ้งซ่อม
+                  <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" ><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </a>
             </div>
-            
-        </Layout>
-    </div>
-        
+
+        </Layout>  </div>
     )
 }
 
