@@ -28,19 +28,73 @@ const Repair_Service = ({ token }) => {
 
     }
 
-    const printProblems = () => {
+    // const printProblems = () => {
+    //     if (problems.list && problems.list.length)
+
+    //         return problems.list.map((item, index) =>
+    //         (<li key={index}>
+    //             {item.name}
+    //             {item.email}
+    //             {item.room}
+    //             {item.dormitory}
+    //             {item.pb}
+    //         </li>)
+    //         )
+    // }
+    const printName = () => {
         if (problems.list && problems.list.length)
 
             return problems.list.map((item, index) =>
             (<li key={index}>
                 {item.name}
+                
+            </li>)
+            )
+    }
+    const printEmail = () => {
+        if (problems.list && problems.list.length)
+
+            return problems.list.map((item, index) =>
+            (<li key={index}>
+                
                 {item.email}
+                
+            </li>)
+            )
+    }
+    const printRoom = () => {
+        if (problems.list && problems.list.length)
+
+            return problems.list.map((item, index) =>
+            (<li key={index}>
+                
                 {item.room}
+                
+            </li>)
+            )
+    }
+    const printDormitory = () => {
+        if (problems.list && problems.list.length)
+
+            return problems.list.map((item, index) =>
+            (<li key={index}>
+
                 {item.dormitory}
+           
+            </li>)
+            )
+    }
+    const printPb = () => {
+        if (problems.list && problems.list.length)
+
+            return problems.list.map((item, index) =>
+            (<li key={index}>
+
                 {item.pb}
             </li>)
             )
     }
+
 
     return (<div>
         <Navbar />
@@ -50,12 +104,12 @@ const Repair_Service = ({ token }) => {
             </Head>
             <br></br>
             <div className={styles.container}>
-                <h1 class="text-lg font-medium leading-6 text-gray-900">Repair Service</h1>
+                <h1 class="ml-3 pt-5 py-4 justify-center text-indigo-800 text-3xl drop-shadow-lg text-lg font-medium leading-6 text-gray-900 ">Repair Service</h1>
 
                 <br></br>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table class="w-full text-m text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-s text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     Name
@@ -80,19 +134,19 @@ const Repair_Service = ({ token }) => {
                         <tbody>
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                {printProblems()}
+                                    {printName()}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {/* ${item.email} */}
+                                    {printEmail()}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {/* ${item.room} */}
+                                    {printRoom()}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {/* ${item.dormitory} */}
+                                    {printDormitory()}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {/* ${item.pb} */}
+                                    {printPb()}
                                 </td>
                                 <td class="px-6 py-4 text-right">
                                     <a href="/problems" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>

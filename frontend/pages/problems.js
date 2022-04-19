@@ -135,9 +135,9 @@ const Problems = ({ token }) => {
                           <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             onChange={(e) => setDormitory(e.target.value)}>
                             <option> </option>
-                            <option>หอ 1,2</option>
-                            <option>หอ 3</option>
-                            <option>หอชาย</option>
+                            <option> 1,2</option>
+                            <option> 3</option>
+                            <option> ชาย</option>
                           </select>
                         </div>
 
