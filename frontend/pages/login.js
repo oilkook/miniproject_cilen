@@ -30,7 +30,7 @@ export default function Login({ token }) {
 
     const loginForm = () => (
         <div className={styles.Container}>
-            <div class="p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-fuchsia-900 dark:border-gray-900">
     <form class="space-y-6" action="#">
         <h5 class="text-xl font-medium text-gray-900 dark:text-white">Sign in to Repair Man</h5>
             <div>

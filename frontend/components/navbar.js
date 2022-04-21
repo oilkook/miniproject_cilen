@@ -3,12 +3,12 @@ import Link from 'next/link'
 
 const Navbar = () => (
  
-      <nav class="bg-white w-full border-gray-200 px-2 m:px-4 py-2.5 rounded dark:bg-gray-800 top-0 fixed" >
+      <nav class="bg-white w-full border-gray-200 px-2 m:px-4 py-2.5 rounded dark:bg-fuchsia-900 top-0 fixed" >
  
  <div class="container flex flex-wrap justify-between items-center mx-auto">
     <a href="/" class="flex items-center">
         <img src="https://mall.factomart.com/wp-content/uploads/2018/12/Banner-250x250-JOB01.png" class="mr-3 h-6 sm:h-9" alt="Repairman Logo" />
-        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Repair Man</span>
+        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Repair Man</span>
     </a>
     <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu" aria-expanded="false">
       <span class="sr-only">Open main menu</span>
@@ -17,7 +17,7 @@ const Navbar = () => (
     </button>
     
     <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
-      <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+      <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-m md:font-medium">
         <li>
           <a href="/" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
         </li>

@@ -21,6 +21,6 @@ a {
 
 @layer base{
   body{
-    @apply bg-indigo-100
+    @apply bg-fuchsia-200
   }
 }
